@@ -123,7 +123,9 @@ class Normalize(object):
         image = image.type(torch.FloatTensor)
         image = F.normalize(image, self.mean, self.std, self.inplace)
         sample['image'] = image
-        sample['gt_matte'] = sample['gt_matte'] / 255
+        #多除了了个255
+        #sample['gt_matte'] = sample['gt_matte'] / 255
+        sample['gt_matte'] = sample['gt_matte'] 
         return sample
 
 
